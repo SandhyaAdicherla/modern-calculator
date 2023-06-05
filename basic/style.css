@@ -29,9 +29,11 @@ header{
   height: 50px;
   margin-bottom: 16px;
   border:2px solid #044586 ;
+  font-size: 24px;
+  text-align:center;
   /* transform: scale(1); */
 }
-.btn{
+button{
    background-color: #044586;
    color: #fff;
    font-size: 18px;
@@ -43,7 +45,7 @@ header{
 
 
 
-.btn:active ,.btn:hover{
+button:active ,button:hover{
   
   background-color: #1263b5;
 }
