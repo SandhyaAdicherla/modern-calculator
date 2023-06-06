@@ -9,17 +9,31 @@ function getwrite(operator,cur,input){
    const calculation=`${cur}${operator}${input}`;
    output(currentRes,calculation);
 }
-function add(){
+function calculate(operatortype){
+  const initital=currentRes;
   const enternum=getuserInput();
-  const initital =currentRes;
-  currentRes=currentRes+enternum;
-  getwrite('+',initital,enternum,currentRes);
+  if(operatortype==='ADD'){
+    currentRes+=enternum;
+    getwrite('+',initital,enternum,currentRes);
+  }else{
+    currentRes-=enternum;
+    getwrite('-',initital,enternum,currentRes);
+  }
+  
+}
+function add(){
+  // const enternum=getuserInput();
+  // const initital =currentRes;
+  // currentRes=currentRes+enternum;
+  calculate('ADD');
+  
 }
 function subtract(){
-  const enternum=getuserInput();
-  const initital =currentRes;
-  currentRes=currentRes-enternum;
-  getwrite('-',initital,enternum,currentRes);
+  // const enternum=getuserInput();
+  // const initital =currentRes;
+  // currentRes=currentRes-enternum;
+  // getwrite('-',initital,enternum,currentRes);
+  calculate('SUB');
 }
 function multiply(){
   const enternum=getuserInput();
