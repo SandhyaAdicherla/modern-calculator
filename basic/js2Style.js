@@ -10,42 +10,44 @@ function getwrite(operator,cur,input){
    output(currentRes,calculation);
 }
 function calculate(operatortype){
-  const initital=currentRes;
   const enternum=getuserInput();
+  if(operatortype!=='ADD' &&
+     operatortype!=='SUB' &&
+     operatortype!=='MUL' &&
+     operatortype!=='DIV' ||
+     !enternum
+  ){
+    return;
+  }
+  const initital=currentRes;
+  
   if(operatortype==='ADD'){
     currentRes+=enternum;
     getwrite('+',initital,enternum,currentRes);
-  }else{
+  }else if(operatortype==='SUB'){
     currentRes-=enternum;
     getwrite('-',initital,enternum,currentRes);
+  }else if(operatortype==='MUL' ){
+    currentRes*=enternum;
+    getwrite('*',initital,enternum,currentRes);
+  }else if(operatortype==='DIV'){
+    currentRes/=enternum;
+    getwrite('/',initital,enternum,currentRes);
   }
   
 }
 function add(){
-  // const enternum=getuserInput();
-  // const initital =currentRes;
-  // currentRes=currentRes+enternum;
   calculate('ADD');
   
 }
 function subtract(){
-  // const enternum=getuserInput();
-  // const initital =currentRes;
-  // currentRes=currentRes-enternum;
-  // getwrite('-',initital,enternum,currentRes);
   calculate('SUB');
 }
 function multiply(){
-  const enternum=getuserInput();
-  const initital =currentRes;
-  currentRes=currentRes*enternum;
-  getwrite('*',initital,enternum,currentRes);
+  calculate('MUL');
 }
 function divide(){
-  const enternum=getuserInput();
-  const initital =currentRes;
-  currentRes=currentRes/enternum;
-  getwrite('/',initital,enternum,currentRes);
+  calculate('DIV');
 }
 
 addbtn.addEventListener('click',add);
